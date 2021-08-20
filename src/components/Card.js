@@ -3,6 +3,11 @@ import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 
 import {faShoppingCart, faHeart} from '@fortawesome/free-solid-svg-icons';
 
+import Swal from 'sweetalert2';
+import withReactContent from 'sweetalert2-react-content';
+
+const MySwal = withReactContent(Swal);
+
 
 
 export const Card = (props) => {
@@ -13,7 +18,44 @@ export const Card = (props) => {
 
     const ClickHandler = () => {
 
-        
+        MySwal.fire({
+
+            title:'Are you sure ?',
+            text:'You want to add this item',
+            icon : 'warning',
+            confirmButtonText : 'Yes, Add this item',
+            showCancelButton:true,
+            didOpen : () => {
+
+                 Swal.getCancelButton().addEventListener('click',e=>{
+
+                    MySwal.fire({
+                      
+                        position:'top-end',
+                        icon:'warning',
+                        title : 'item not added',
+                        showConfirmButton:false,
+                        timer:2000
+
+                    });
+                 })
+
+            }
+            
+
+
+        }).then(() => {
+                   
+            return MySwal.fire({
+             position : 'top-end',
+             icon : 'success',
+             title:'item added',
+             showConfirmButton : false,
+             timer:2000
+
+            })
+
+        });
 
     };
 
