@@ -1,17 +1,49 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
+import ReactDom from 'react-dom';
+import {dataBook} from './data/data';
+import { Books } from './components/Books';
+
 import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
 
-ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
-  document.getElementById('root')
-);
+console.log(dataBook);
 
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals();
+
+/**
+ * 
+ * un composant react doit absolument retourné du JSX
+ * CamelCase ou KebabCase
+ */
+function BookList(){
+
+         return (
+           <>
+
+           <section className="container mx-auto my-12 px-4">
+              <Heading title="Book list" />
+              <Books />
+           </section>
+          
+           </>
+         );
+}
+
+
+const Heading = (props) => {
+
+
+ 
+  console.log(props);
+   
+  return(
+    <h1 className="font-mono text-3xl font-extrabold text-center text-red-800">
+      {props.title}
+    </h1>
+  );
+
+}
+
+
+
+ReactDom.render(<BookList />,document.getElementById('root'));
+
+
