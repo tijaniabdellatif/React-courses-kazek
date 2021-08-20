@@ -1,8 +1,21 @@
 import React from 'react';
+import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
+
+import {faShoppingCart, faHeart} from '@fortawesome/free-solid-svg-icons';
 
 
 
-export const Card = () => {
+export const Card = (props) => {
+
+    console.log(props);
+    const{url,title,date,author,authorImg,price} = props.book;
+
+
+    const ClickHandler = () => {
+
+        
+
+    };
 
     return(
 
@@ -10,42 +23,44 @@ export const Card = () => {
     <div className="overflow-hidden rounded-lg shadow-lg">
         <a href="#">
 
-<img src="" className="block h-auto w-full" />
+<img src={url} className="block h-auto w-full" />
 
         </a>
         <header className="flex items-center justify-between p-2 md:p-4">
 
             <h1 className="text-lg">
-                <a className="no-underline hover:underline" style={{color:'red'}}>Titre 1</a>
+                <a className="no-underline hover:underline" style={{color:'red'}}>{title}</a>
             </h1>
             <p className="text-gray-darker text-sm">
-                date
+                {date}
             </p>
         </header>
         <footer className="flex items-center justify-between p-2 md:p-4">
             <a className="flex items-center no-underline hover:underline text-black">
-                <img className="block rounded-full" src="" />
+                <img className="block rounded-full" src={authorImg} />
                 <p className="ml-2 text-sm">
-                    Le nom de l'auteur
+                    {author.toUpperCase()}
                 </p>
 
 
                 <p className="ml-2 text-sm">
                     Price : <span className="text-red-800"
                       style={{margin:'0.75rem',marginTop:"0.25rem"}}
-                    ></span>
+                    >
+                        {price}
+                    </span>
                 </p>
             </a>
 
             <a className="no-underline text-gray-darker hover:text-red-dark">
             <span>
-                Font Awseome Like
+            <Font name={faHeart} />
             </span>
             </a>
 
             <a className="no-underline text-gray-darker hover:text-red-dark">
             <span>
-                Font Awseome Shoppin cart
+                <Font name={faShoppingCart} />
             </span>
             </a>
             
@@ -53,11 +68,10 @@ export const Card = () => {
 
         <div className="text-center my-7">
 
-            <button className="bg-white hover:bg-gray-100 py-2 px-4 border-gray-400 rounded shadow">
+            <button className="bg-white hover:bg-gray-100 py-2 px-4 border-gray-400 rounded shadow" onClick={ClickHandler} >
              
              Add to Cart <span>
-
-                 FontAwesome Shoppng Cart
+                 <Font name={faShoppingCart} />
              </span>
 
             </button>
@@ -69,5 +83,12 @@ export const Card = () => {
 
     </div>
     );
+
+}
+
+const Font = (props) => {
+return (
+    <FontAwesomeIcon icon={props.name} />
+);
 
 }

@@ -8,7 +8,16 @@ export const Books = () => {
     return(
         <article className="flex flex-wrap -mx-1">
 
-            <Card />
+
+           {
+               dataBook.map((book) => {
+                    
+                       return(
+                           <Card key={book.id}  book={book} />
+                       );
+               })
+           }
+
         </article>
     );
 }

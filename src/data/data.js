@@ -10,7 +10,7 @@ month:'long'
 
 export const dataBook = [
 
-    {
+    {   id:1,
         title:"Marxism",
         author : "Mark R.levin",
         date: dateString,
@@ -19,6 +19,7 @@ export const dataBook = [
         url : "https://images-na.ssl-images-amazon.com/images/I/51gGgVnODsL._SX322_BO1,204,203,200_.jpg"
     },
     {
+        id:2,
         title:"It ends with us",
         author : "paperBack",
         date: dateString,
@@ -27,6 +28,7 @@ export const dataBook = [
         url : "https://images-na.ssl-images-amazon.com/images/I/51gGgVnODsL._SX322_BO1,204,203,200_.jpg"
     },
     {
+        id:3,
         title:"Billy summer HArdcover",
         author : "stephen King",
         date: dateString,
